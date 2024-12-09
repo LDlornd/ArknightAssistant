@@ -257,7 +257,7 @@ def do_sign(cred_resp):
             'uid': i.get('uid')
         }
         # list_awards(1, i.get('uid'))
-        resp = requests.post(sign_url, headers=get_sign_header(sign_url, 'post', None, http_local.header),
+        resp = requests.post(sign_url, headers=get_sign_header(sign_url, 'post', body, http_local.header),
                              json=body).json()
         if resp['code'] != 0:
             print(f'角色{i.get("nickName")}({i.get("channelName")})签到失败了！原因：{resp.get("message")}')
